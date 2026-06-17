@@ -9,30 +9,32 @@ const roboto = Roboto({
   display: 'swap',
 });
 
-const theme = createTheme({
-  cssVariables: true,
-  palette: {
-    mode: 'light',
-  },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
-  },
-  components: {
-    MuiAlert: {
-      styleOverrides: {
-        root: {
-          variants: [
-            {
-              props: { severity: 'info' },
-              style: {
-                backgroundColor: '#60a5fa',
-              },
-            }
-          ],
+export function createAppTheme(mode = 'light') {
+  return createTheme({
+    cssVariables: true,
+    palette: {
+      mode,
+    },
+    typography: {
+      fontFamily: roboto.style.fontFamily,
+    },
+    components: {
+      MuiAlert: {
+        styleOverrides: {
+          root: {
+            variants: [
+              {
+                props: { severity: 'info' },
+                style: {
+                  backgroundColor: '#60a5fa',
+                },
+              }
+            ],
+          },
         },
       },
     },
-  },
-});
+  });
+}
 
-export default theme;
+export default createAppTheme();
