@@ -14,6 +14,9 @@ move to .
 -- Install
 
 npm i
+brew install jq
+jq --version
+jq . vese_transaction.json > vese_transaction_formatted.json
 
 -- Components
 
